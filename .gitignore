@@ -8,3 +8,8 @@
 mcrcon
 todo
 *.plist
+mcverify-run
+.conda
+.dev
+.venv
+__pycache__

@@ -1,0 +1,11 @@
+# mcrcon settings when begin called
+
+## Default is localhost
+host: localhost
+## Default is 25575
+port: 25575
+## Default is 1
+wait: 1
+passwd: your_server_rcon_passwd(optional)
+## Default is ./
+location: /path/to/mcverify/

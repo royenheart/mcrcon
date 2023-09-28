@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="mcverify, automatically add MC whitelist with some questions">
+    <meta name="author" content="RoyenHeart" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='public/favicon.ico') }}">
+    <title>mcverify</title>
+</head>
+<body style="background-image: url({{ url_for('static', filename='public/background.png') }});">
+    <div id="mcverify-div">
+        <h1>MCVERIFY</h1>
+        {% if questions %}
+        <form action="/" method="post">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Questions</th>
+                        <th>Answer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for qes in questions %}
+                    <tr>
+                        <td>{{ qes.q }}</td>
+                        {% if qes.must %}
+                        <td><input type="text" name="{{ qes.q }}" required autocomplete="off"></td>
+                        {% else %}
+                        <td><input type="text" name="{{ qes.q }}" autocomplete="off"></td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td>Your MC ID</td>
+                        <td><input type="text" name="MCID" required autocomplete="off"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="submit">Submit</button>
+        </form>
+        {% elif ret %}
+            {% if ret.r == 'no' %}
+            <p class="ret-no">{{ ret.resp }}</p>
+            {% else %}
+            <p class="ret-yes">{{ ret.resp }}</p>
+            {% endif %}
+        {% else %}
+        <p class="ret-no">No questions, mcverify not allow whitelisting without setting the question.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

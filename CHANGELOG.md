@@ -1,5 +1,9 @@
 #### Version history:
 
+###### mcverify 0.1.0
+ - Initial release
+ - Modified from origin software [mcrcon](https://github.com/Tiiffi/mcrcon)
+
 ###### 0.7.2
  - Quit gracefully when Ctrl-D or Ctrl+C is pressed
  - Remove "exit" and "quit" as quitting commands

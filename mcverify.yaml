@@ -1,0 +1,17 @@
+# mcverify runtime settings
+
+questions:
+  - 
+    q: "What is MC"
+    a: "minecraft"
+    must: true
+  - 
+    q: "What is Minecraft"
+    a: "MC"
+    must: false
+  - 
+    q: "What's your real name"
+    a: "^[a-zA-Z]+$"
+    must: true
+MCID_pattern: "^[a-zA-Z0-9\\-_]+$"
+    

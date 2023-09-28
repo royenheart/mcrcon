@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# export MCVERIFY_BIN="/usr/local/mcverify/bin"
+# export MCVERIFY_ETC="/usr/local/mcverify/etc"
+# export MCVERIFY_VAR="/usr/local/mcverify/var"
+
+export MCVERIFY_BIN="./"
+export MCVERIFY_ETC="./"
+export MCVERIFY_VAR="./"
+
+cd $MCVERIFY_BIN
+
+if [[ $DEBUG == "on" ]]; then
+    flask --debug --app mcverify run $@
+else
+    gunicorn -w 1 mcverify:app
+fi
